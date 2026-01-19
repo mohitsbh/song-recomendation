@@ -2,7 +2,9 @@ from flask import Flask, request, jsonify, render_template_string
 import os
 from recommend import load_model_info, preprocess_image, predict_emotion, get_recommendations, get_local_songs
 
-MODEL_PATH = os.path.join('model', 'model_v6_23.hdf5')
+# Use absolute path based on this file's location
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, 'model', 'model_v6_23.hdf5')
 
 app = Flask(__name__, static_folder='static')
 
